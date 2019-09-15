@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-auth',
@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./auth.component.scss']
 })
 export class AuthComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
+  adicionarOuRemoverImagemDeFundo() {
+    document.body.classList.toggle('auth-background');
   }
 
+  ngOnInit() {
+    this.adicionarOuRemoverImagemDeFundo();
+  }
+
+  OnDestroy() {
+    this.adicionarOuRemoverImagemDeFundo();
+  }
 }
